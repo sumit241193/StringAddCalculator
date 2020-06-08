@@ -2,6 +2,19 @@
 public class AppStringCalculator {
 	
 	private String delimiter=",|\n";
+	private String input;
+	
+	public AppStringCalculator()
+	{}
+	
+	
+	
+	public AppStringCalculator(String delimiter, String input) {
+		this.delimiter = delimiter;
+		this.input = input;
+	}
+
+	
 
 	public int add(String number) {
 
@@ -12,17 +25,29 @@ public class AppStringCalculator {
 
 		if (number.length() == 1)
 			return strToInt(number);
-		else
-			if(number.startsWith("//"))
-			{
-				String[] inputs = number.split("\n",2);
-				delimiter = inputs[0].substring(2);
-				number=inputs[1];
-			}
-			String[] values = number.split(this.delimiter);
+		else {
+			AppStringCalculator appstr = parseDelimiter(number);
+			String[] values = appstr.input.split(appstr.delimiter);
 			return doSum(values);
 			
 
+	}
+	}
+
+
+
+	private AppStringCalculator parseDelimiter(String number) {
+		AppStringCalculator appstr;
+		if(number.startsWith("//"))
+		{
+			String[] inputs = number.split("\n",2);
+			
+			
+			appstr = new AppStringCalculator(inputs[0].substring(2),inputs[1]);
+		}
+		else
+			appstr = new AppStringCalculator(",|\n",number);
+		return appstr;
 	}
 	
 	private int doSum(String [] num)
@@ -30,6 +55,7 @@ public class AppStringCalculator {
 		int sum=0;
 		for(String item:num)
 		{
+			 
 			sum+=Integer.parseInt(item);
 		}
 		return sum;

@@ -44,4 +44,10 @@ public class TestStringCalculator {
 	{
 		assertEquals(calc.add("//;\n1;2"),3);
 	}
+	
+	@Test(expected=Exception.class)
+	public void negativeNumber()
+	{
+		calc.add("-5");
+	}
 }
