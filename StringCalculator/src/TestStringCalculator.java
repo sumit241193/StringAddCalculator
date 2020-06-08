@@ -66,4 +66,10 @@ public class TestStringCalculator {
 		exp.expectMessage("Negative not allowed: -5,-3,-4,-6");
 		calc.add("-5,-3,-4,-6");
 	}
+	
+	@Test
+	public void numberGreaterThan1000() throws Exception
+	{
+		assertEquals(calc.add("1001"), 2);
+	}
 }

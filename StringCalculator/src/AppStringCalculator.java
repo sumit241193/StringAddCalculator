@@ -67,6 +67,8 @@ public class AppStringCalculator {
 				arr.add(item);
 				
 			}
+			
+			
 			else
 			{
 			sum+=Integer.parseInt(item);
@@ -76,6 +78,13 @@ public class AppStringCalculator {
 		
 		}
 		
+		showError(arr);
+		return sum;
+	}
+
+
+
+	private void showError(ArrayList<String> arr) throws Exception {
 		if(arr.size()>0)
 		{
 			StringBuffer str=new StringBuffer();
@@ -89,7 +98,6 @@ public class AppStringCalculator {
 			
 			throw new Exception("Negative not allowed: "+errorshow);
 		}
-		return sum;
 	}
 
 	private boolean isEmpty(String number) {
