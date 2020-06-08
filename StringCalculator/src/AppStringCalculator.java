@@ -54,7 +54,7 @@ public class AppStringCalculator {
 		int sum=0;
 		for(String item:num)
 		{
-			if(Integer.parseInt(item)<0) throw new Exception("Negative not allowed");
+			if(Integer.parseInt(item)<0) throw new Exception("Negative not allowed: "+item);
 			sum+=Integer.parseInt(item);
 		}
 		return sum;

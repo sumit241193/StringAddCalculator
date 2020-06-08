@@ -1,7 +1,9 @@
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 public class TestStringCalculator {
 	
@@ -45,9 +47,15 @@ public class TestStringCalculator {
 		assertEquals(calc.add("//;\n1;2"),3);
 	}
 	
-	@Test(expected=Exception.class)
+	
+	@Rule
+	public ExpectedException exp=ExpectedException.none();
+	
+	@Test
 	public void negativeNumber() throws Exception
 	{
+		exp.expect(Exception.class);
+		exp.expectMessage("Negative not allowed: -5");
 		calc.add("-5");
 	}
 }
