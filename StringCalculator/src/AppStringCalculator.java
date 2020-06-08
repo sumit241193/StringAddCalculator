@@ -55,7 +55,11 @@ public class AppStringCalculator {
 
 
 	private String parseStarting(String starting) {
-		return Pattern.quote(starting.substring(2));
+		String delimiter=starting.substring(2);
+		if(delimiter.startsWith("[")) {
+			delimiter=delimiter.substring(1, delimiter.length()-1);
+		}
+		return Pattern.quote(delimiter);
 	}
 	
 	private int doSum(String [] num) throws Exception

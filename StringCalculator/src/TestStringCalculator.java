@@ -76,6 +76,6 @@ public class TestStringCalculator {
 	@Test
 	public void multiCharDelimiter() throws Exception
 	{
-		assertEquals(calc.add("//[***]\\n1***2***3"),6);
+		assertEquals(calc.add("//[***]\n1***2***3"),6);
 	}
 }
