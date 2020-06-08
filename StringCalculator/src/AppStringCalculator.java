@@ -12,8 +12,18 @@ public class AppStringCalculator {
 			return strToInt(number);
 		else
 
-			return Integer.parseInt(values[0]) + Integer.parseInt(values[1]);
+			return doSum(values);
 
+	}
+	
+	private int doSum(String [] num)
+	{
+		int sum=0;
+		for(String item:num)
+		{
+			sum+=Integer.parseInt(item);
+		}
+		return sum;
 	}
 
 	private boolean isEmpty(String number) {
@@ -23,5 +33,7 @@ public class AppStringCalculator {
 	private int strToInt(String number) {
 		return Integer.parseInt(number);
 	}
+	
+	
 
 }

@@ -32,4 +32,10 @@ public class TestStringCalculator {
 	{
 		assertEquals(calc.add("1,2"),3);
 	}
+	
+	@Test
+	public void testNewLineDelimiter()
+	{
+		assertEquals(calc.add("1\n2,3"),6);
+	}
 }
