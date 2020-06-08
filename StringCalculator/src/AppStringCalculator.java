@@ -16,15 +16,14 @@ public class AppStringCalculator {
 
 	
 
-	public int add(String number) {
+	public int add(String number) throws Exception {
 
 		
 
 		if (isEmpty(number))
 			return 0;
 
-		if (number.length() == 1)
-			return strToInt(number);
+		
 		else {
 			AppStringCalculator appstr = parseDelimiter(number);
 			String[] values = appstr.input.split(appstr.delimiter);
@@ -50,12 +49,12 @@ public class AppStringCalculator {
 		return appstr;
 	}
 	
-	private int doSum(String [] num)
+	private int doSum(String [] num) throws Exception
 	{
 		int sum=0;
 		for(String item:num)
 		{
-			 
+			if(Integer.parseInt(item)<0) throw new Exception("Negative not allowed");
 			sum+=Integer.parseInt(item);
 		}
 		return sum;
