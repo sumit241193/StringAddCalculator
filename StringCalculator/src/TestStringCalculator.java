@@ -13,7 +13,7 @@ public class TestStringCalculator {
 		calc=new AppStringCalculator();
 	}
 	
-	// For Checking Empty String
+	
 	@Test
 	public void emptyString()
 	{
@@ -37,5 +37,11 @@ public class TestStringCalculator {
 	public void testNewLineDelimiter()
 	{
 		assertEquals(calc.add("1\n2,3"),6);
+	}
+	
+	@Test
+	public void specifiedDelimiter()
+	{
+		assertEquals(calc.add("//;\n1;2"),3);
 	}
 }

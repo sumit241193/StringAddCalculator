@@ -1,9 +1,11 @@
 
 public class AppStringCalculator {
+	
+	private String delimiter=",|\n";
 
 	public int add(String number) {
 
-		String[] values = number.split(",|\n");
+		String[] values = number.split(this.delimiter);
 
 		if (isEmpty(number))
 			return 0;
