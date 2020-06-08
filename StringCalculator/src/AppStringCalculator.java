@@ -3,7 +3,7 @@ public class AppStringCalculator {
 
 	public int add(String number) {
 
-		String[] values = number.split(",");
+		String[] values = number.split(",|\n");
 
 		if (isEmpty(number))
 			return 0;
