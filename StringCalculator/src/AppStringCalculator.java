@@ -5,7 +5,7 @@ public class AppStringCalculator {
 
 	public int add(String number) {
 
-		String[] values = number.split(this.delimiter);
+		
 
 		if (isEmpty(number))
 			return 0;
@@ -13,8 +13,15 @@ public class AppStringCalculator {
 		if (number.length() == 1)
 			return strToInt(number);
 		else
-
+			if(number.startsWith("//"))
+			{
+				String[] inputs = number.split("\n",2);
+				delimiter = inputs[0].substring(2);
+				number=inputs[1];
+			}
+			String[] values = number.split(this.delimiter);
 			return doSum(values);
+			
 
 	}
 	
