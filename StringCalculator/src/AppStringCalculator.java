@@ -68,7 +68,13 @@ public class AppStringCalculator {
 				
 			}
 			
-			
+			else if(Integer.parseInt(item)>1000)
+			{
+				char char0 = item.charAt(0);
+				char char1=item.charAt(item.length()-1);
+				
+				return Character.getNumericValue(char0)+Character.getNumericValue(char1);
+			}
 			else
 			{
 			sum+=Integer.parseInt(item);
