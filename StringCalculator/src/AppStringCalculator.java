@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.regex.Pattern;
 
 public class AppStringCalculator {
 	
@@ -41,13 +42,20 @@ public class AppStringCalculator {
 		if(number.startsWith("//"))
 		{
 			String[] inputs = number.split("\n",2);
+			String starting=inputs[0];
 			
 			
-			appstr = new AppStringCalculator(inputs[0].substring(2),inputs[1]);
+			appstr = new AppStringCalculator(parseStarting(starting),inputs[1]);
 		}
 		else
 			appstr = new AppStringCalculator(",|\n",number);
 		return appstr;
+	}
+
+
+
+	private String parseStarting(String starting) {
+		return Pattern.quote(starting.substring(2));
 	}
 	
 	private int doSum(String [] num) throws Exception
@@ -70,10 +78,7 @@ public class AppStringCalculator {
 			
 			else if(Integer.parseInt(item)>1000)
 			{
-				char char0 = item.charAt(0);
-				char char1=item.charAt(item.length()-1);
-				
-				return Character.getNumericValue(char0)+Character.getNumericValue(char1);
+				return checkNumberMoreThan1000(item);
 			}
 			else
 			{
@@ -90,6 +95,15 @@ public class AppStringCalculator {
 
 
 
+	private int checkNumberMoreThan1000(String item) {
+		char char0 = item.charAt(0);
+		char char1=item.charAt(item.length()-1);
+		
+		return Character.getNumericValue(char0)+Character.getNumericValue(char1);
+	}
+
+
+
 	private void showError(ArrayList<String> arr) throws Exception {
 		if(arr.size()>0)
 		{
@@ -98,7 +112,7 @@ public class AppStringCalculator {
 			for(String item:arr)
 				str.append(item+",");
 			
-			str.replace(str.length()-1, str.length()-1,"");
+			str.replace(str.length()-1, str.length(),"");
 			
 			String errorshow=str.toString();
 			

@@ -72,4 +72,10 @@ public class TestStringCalculator {
 	{
 		assertEquals(calc.add("1001"), 2);
 	}
+	
+	@Test
+	public void multiCharDelimiter() throws Exception
+	{
+		assertEquals(calc.add("//[***]\\n1***2***3"),6);
+	}
 }
