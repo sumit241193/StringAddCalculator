@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 public class AppStringCalculator {
 	
@@ -51,11 +52,42 @@ public class AppStringCalculator {
 	
 	private int doSum(String [] num) throws Exception
 	{
+		int sum = checkNegativeNumber(num);
+		return sum;
+	}
+
+
+
+	private int checkNegativeNumber(String[] num) throws Exception {
 		int sum=0;
+		ArrayList<String> arr=new ArrayList<>();
 		for(String item:num)
 		{
-			if(Integer.parseInt(item)<0) throw new Exception("Negative not allowed: "+item);
+			if(Integer.parseInt(item)<0) {
+				arr.add(item);
+				
+			}
+			else
+			{
 			sum+=Integer.parseInt(item);
+			}
+			
+			
+		
+		}
+		
+		if(arr.size()>0)
+		{
+			StringBuffer str=new StringBuffer();
+			
+			for(String item:arr)
+				str.append(item+",");
+			
+			str.replace(str.length()-1, str.length()-1,"");
+			
+			String errorshow=str.toString();
+			
+			throw new Exception("Negative not allowed: "+errorshow);
 		}
 		return sum;
 	}

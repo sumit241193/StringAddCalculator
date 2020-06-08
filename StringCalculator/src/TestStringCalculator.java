@@ -58,4 +58,12 @@ public class TestStringCalculator {
 		exp.expectMessage("Negative not allowed: -5");
 		calc.add("-5");
 	}
+	
+	@Test
+	public void allNegativeNumbers() throws Exception
+	{
+		exp.expect(Exception.class);
+		exp.expectMessage("Negative not allowed: -5,-3,-4,-6");
+		calc.add("-5,-3,-4,-6");
+	}
 }
