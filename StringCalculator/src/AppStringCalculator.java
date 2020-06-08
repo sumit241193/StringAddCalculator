@@ -3,7 +3,7 @@ public class AppStringCalculator {
 
 	public int add(String number) {
 		
-		return -1;
+		return 0;
 	}
 
 }
