@@ -26,5 +26,10 @@ public class TestStringCalculator {
 	{
 		assertEquals(calc.add("1"),1);
 	}
-
+	
+	@Test
+	public void twoNumberComma()
+	{
+		assertEquals(calc.add("1,2"),3);
+	}
 }
